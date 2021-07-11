@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>701742442702-lmsmsbers43gne4aac6q0p6ha3lr8i4u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.701742442702-lmsmsbers43gne4aac6q0p6ha3lr8i4u</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>701742442702-7gh04j69kabl0rken56ju8natemuak7t.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDfBtDCtUxrKgYGT_In9ncC3-Jl32EE62M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>701742442702</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.theyestech.yesmobile</string>
+	<key>PROJECT_ID</key>
+	<string>yesmobile-86b5d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>yesmobile-86b5d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:701742442702:ios:bf1eb782ef6154787b489f</string>
+	<key>DATABASE_URL</key>
+	<string>https://yesmobile-86b5d.firebaseio.com</string>
+</dict>
+</plist>
