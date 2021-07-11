@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:yestech_flutter/modules/account/account_view.dart';
 import 'package:yestech_flutter/modules/chats/chats_view.dart';
 import 'package:yestech_flutter/modules/home/home_view.dart';
 import 'package:yestech_flutter/modules/menus/menus_view.dart';
@@ -19,6 +20,7 @@ class _BottomNavViewState extends State<BottomNavView> {
     HomeView(),
     ChatsView(),
     MenusView(),
+    AccountView(),
   ];
 
   List<BottomNavigationBarItem> navItem = [
@@ -32,7 +34,11 @@ class _BottomNavViewState extends State<BottomNavView> {
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.menu),
-      label: 'Menus',
+      label: 'Menu',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.person),
+      label: 'Account',
     ),
   ];
 
