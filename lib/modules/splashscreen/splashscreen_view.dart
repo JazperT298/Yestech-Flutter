@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
 import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
 import 'package:yestech_flutter/modules/home/home_view.dart';
+import 'package:yestech_flutter/modules/welcome/welcomescreen_view.dart';
 import 'package:yestech_flutter/services/new_version.dart';
 
 class SplashScreenView extends StatefulWidget {
@@ -24,7 +25,7 @@ class _SplashScreenViewState extends State<SplashScreenView> {
     Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => BottomNavView()),
+        MaterialPageRoute(builder: (context) => WelcomeScreenView()),
       );
     });
   }
