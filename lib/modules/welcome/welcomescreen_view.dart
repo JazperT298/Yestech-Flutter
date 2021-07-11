@@ -35,6 +35,8 @@ class WelcomeScreenView extends StatelessWidget {
               },
               child: Container(
                 height: config.appHeight(7),
+                width: MediaQuery.of(context).size.width,
+                color: Colors.green,
                 child: Center(
                   child: Text(
                     'STUDENT',
@@ -57,6 +59,8 @@ class WelcomeScreenView extends StatelessWidget {
               },
               child: Container(
                 height: config.appHeight(7),
+                width: MediaQuery.of(context).size.width,
+                color: Colors.green,
                 child: Center(
                   child: Text(
                     'EDUCATOR',
