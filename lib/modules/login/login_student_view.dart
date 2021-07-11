@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
 import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
-import 'package:yestech_flutter/modules/register/register_educator_view.dart';
+import 'package:yestech_flutter/modules/register/register_student_view.dart';
 
-class LoginEducatorView extends StatefulWidget {
-  const LoginEducatorView({key}) : super(key: key);
+class LoginStudentView extends StatefulWidget {
+  const LoginStudentView({key}) : super(key: key);
 
   @override
-  _LoginEducatorViewState createState() => _LoginEducatorViewState();
+  _LoginStudentViewState createState() => _LoginStudentViewState();
 }
 
-class _LoginEducatorViewState extends State<LoginEducatorView> {
+class _LoginStudentViewState extends State<LoginStudentView> {
   @override
   Widget build(BuildContext context) {
     final config = App(context);
@@ -74,6 +74,7 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
                 ),
               ),
               onPressed: () {
+                // controller.loginUser();
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => BottomNavView()));
               },
@@ -97,7 +98,7 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => RegisterEducatorView()));
+                      builder: (context) => RegisterStudentView()));
             },
             child: Text(
               "Create account",

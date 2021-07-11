@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/modules/login/login_educator_view.dart';
+import 'package:yestech_flutter/modules/login/login_student_view.dart';
 import 'package:yestech_flutter/modules/login/login_view.dart';
 import 'package:yestech_flutter/modules/register/register_view.dart';
 
@@ -30,7 +32,7 @@ class WelcomeScreenView extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginView()),
+                  MaterialPageRoute(builder: (context) => LoginStudentView()),
                 );
               },
               child: Container(
@@ -54,7 +56,7 @@ class WelcomeScreenView extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginView()),
+                  MaterialPageRoute(builder: (context) => LoginEducatorView()),
                 );
               },
               child: Container(

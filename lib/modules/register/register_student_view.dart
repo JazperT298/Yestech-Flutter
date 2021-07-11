@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
 import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
-import 'package:yestech_flutter/modules/register/register_educator_view.dart';
 
-class LoginEducatorView extends StatefulWidget {
-  const LoginEducatorView({key}) : super(key: key);
+class RegisterStudentView extends StatefulWidget {
+  const RegisterStudentView({key}) : super(key: key);
 
   @override
-  _LoginEducatorViewState createState() => _LoginEducatorViewState();
+  _RegisterStudentViewState createState() => _RegisterStudentViewState();
 }
 
-class _LoginEducatorViewState extends State<LoginEducatorView> {
+class _RegisterStudentViewState extends State<RegisterStudentView> {
   @override
   Widget build(BuildContext context) {
     final config = App(context);
@@ -59,6 +58,24 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
       );
     }
 
+    TextField _passwordInput2() {
+      return TextField(
+        // controller: controller.password,
+        // obscureText: controller.isObsecureText.value,
+        onSubmitted: (_) => _node.unfocus(),
+        textInputAction: TextInputAction.done,
+        decoration: InputDecoration(
+          labelText: 'Confirm Password',
+          suffixIcon: IconButton(
+            icon: Icon(Icons.remove_red_eye_outlined),
+            onPressed: () {
+              //controller.isObsecureText.toggle();
+            },
+          ),
+        ),
+      );
+    }
+
     Widget _button() {
       return Row(
         mainAxisSize: MainAxisSize.min,
@@ -68,7 +85,7 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
               color: Colors.green,
               height: 50,
               child: Text(
-                'Login',
+                'Sign Up',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -97,7 +114,7 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => RegisterEducatorView()));
+                      builder: (context) => RegisterStudentView()));
             },
             child: Text(
               "Create account",
@@ -120,6 +137,7 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
             SizedBox(height: 30.0),
             _usernameInput(),
             _passwordInput(),
+            _passwordInput2(),
             SizedBox(height: 20.0),
             _button(),
             SizedBox(height: 15.0),
