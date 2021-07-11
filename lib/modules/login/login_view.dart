@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yestech_flutter/configs/app_configs.dart';
 import 'package:yestech_flutter/modules/register/register_view.dart';
 
 class LoginView extends StatefulWidget {
@@ -11,7 +12,21 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
+    final config = App(context);
     final _node = FocusScope.of(context);
+
+    Container imageLogo() {
+      return Container(
+        height: config.appWidth(40),
+        width: config.appWidth(40),
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          image: DecorationImage(
+            image: AssetImage('assets/images/the_yes_logo.png'),
+          ),
+        ),
+      );
+    }
 
     TextField _usernameInput() {
       return TextField(
@@ -49,10 +64,13 @@ class _LoginViewState extends State<LoginView> {
         children: [
           Expanded(
             child: MaterialButton(
-              color: Theme.of(context).indicatorColor,
+              color: Colors.green,
               height: 50,
               child: Text(
                 'Login',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               onPressed: () {
                 // controller.loginUser();
@@ -94,6 +112,8 @@ class _LoginViewState extends State<LoginView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            imageLogo(),
+            SizedBox(height: 30.0),
             _usernameInput(),
             _passwordInput(),
             SizedBox(height: 20.0),
