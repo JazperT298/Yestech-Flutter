@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/modules/connects/connection_educator_view.dart';
 import 'package:yestech_flutter/modules/subjects/subject_educator_view.dart';
 
 class HomeEducatorView extends StatefulWidget {
@@ -241,12 +242,12 @@ class _HomeEducatorViewState extends State<HomeEducatorView> {
                     children: <Widget>[
                       Expanded(
                         child: GestureDetector(
-                          // onTap: () => Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (_) => ConnectionScreen(),
-                          //   ),
-                          // ),
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ConnectionEducatorView(),
+                            ),
+                          ),
                           child: _buildTile(
                             color: Colors.deepOrangeAccent,
                             icon: Icons.language,
