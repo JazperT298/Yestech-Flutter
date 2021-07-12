@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/modules/subjects/subject_educator_view.dart';
 
 class HomeEducatorView extends StatefulWidget {
   const HomeEducatorView({key}) : super(key: key);
@@ -83,7 +84,7 @@ class _HomeEducatorViewState extends State<HomeEducatorView> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         child: Text(
-                          'Master of Deceiver',
+                          'Master of Educator',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -199,12 +200,12 @@ class _HomeEducatorViewState extends State<HomeEducatorView> {
                       Expanded(
                         flex: 2,
                         child: GestureDetector(
-                          // onTap: () => Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (_) => SubjectScreen(userid: users.user_id, token: users.user_token,),
-                          //   ),
-                          // ),
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => SubjectEducatorView(),
+                            ),
+                          ),
                           child: _buildTile(
                             color: Colors.red,
                             icon: Icons.subject,

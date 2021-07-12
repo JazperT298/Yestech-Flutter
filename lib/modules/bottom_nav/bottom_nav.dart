@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:yestech_flutter/modules/account/account_view.dart';
 import 'package:yestech_flutter/modules/chats/chats_view.dart';
-import 'package:yestech_flutter/modules/home/home_view.dart';
+import 'package:yestech_flutter/modules/home/home_educator_view.dart';
 import 'package:yestech_flutter/modules/menus/menus_view.dart';
 import 'package:yestech_flutter/shared/dialogs.dart';
 
@@ -17,7 +17,7 @@ class _BottomNavViewState extends State<BottomNavView> {
   int selectedIndex = 0;
 
   List<Widget> bodyContext = [
-    HomeView(),
+    HomeEducatorView(),
     ChatsView(),
     MenusView(),
     AccountView(),
