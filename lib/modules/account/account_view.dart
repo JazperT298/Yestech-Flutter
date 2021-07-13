@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/modules/account/edit_account_view.dart';
 
 class AccountView extends StatefulWidget {
   const AccountView({key}) : super(key: key);
@@ -50,30 +51,39 @@ class _AccountViewState extends State<AccountView> {
                               SizedBox(
                                 height: 5.0,
                               ),
-                              Container(
-                                width: config.appWidth(60),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      child: Text(
-                                        'Profile',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              EditAccountView()));
+                                },
+                                child: Container(
+                                  width: config.appWidth(60),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        child: Text(
+                                          'Profile',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: 10.0,
-                                    ),
-                                    Icon(
-                                      Icons.arrow_forward_ios,
-                                      size: 15,
-                                      color: Colors.white,
-                                    ),
-                                  ],
+                                      SizedBox(
+                                        width: 10.0,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 15,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

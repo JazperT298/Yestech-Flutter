@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/modules/account/edit_account_view.dart';
 import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
 
 class RegisterEducatorView extends StatefulWidget {
@@ -92,7 +93,7 @@ class _RegisterEducatorViewState extends State<RegisterEducatorView> {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BottomNavView()));
+                    MaterialPageRoute(builder: (context) => EditAccountView()));
               },
             ),
           ),
