@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
-import 'package:yestech_flutter/modules/account/edit_account_view.dart';
-import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
+import 'package:yestech_flutter/routes/app_routes.dart';
 
 class RegisterEducatorView extends StatefulWidget {
   const RegisterEducatorView({key}) : super(key: key);
@@ -92,8 +92,7 @@ class _RegisterEducatorViewState extends State<RegisterEducatorView> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => EditAccountView()));
+                Get.offAllNamed(AppRoutes.EDITACCOUNT);
               },
             ),
           ),
@@ -112,10 +111,7 @@ class _RegisterEducatorViewState extends State<RegisterEducatorView> {
           SizedBox(width: 5.0),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => RegisterEducatorView()));
+              Get.offAllNamed(AppRoutes.REGISTEREDUCATOR);
             },
             child: Text(
               "Create account",

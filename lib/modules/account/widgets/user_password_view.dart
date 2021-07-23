@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
-import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
+import 'package:yestech_flutter/routes/app_routes.dart';
 
 class UserPasswordView extends StatefulWidget {
   const UserPasswordView({key}) : super(key: key);
@@ -36,10 +37,7 @@ class _UserPasswordViewState extends State<UserPasswordView> {
                   ),
                   MaterialButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => BottomNavView()));
+                      Get.offAllNamed(AppRoutes.BOTTOMNAV);
                     },
                     color: Colors.greenAccent,
                     child: Text(

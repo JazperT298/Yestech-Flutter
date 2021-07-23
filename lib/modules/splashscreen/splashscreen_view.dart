@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
-import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
-import 'package:yestech_flutter/modules/welcome/welcomescreen_view.dart';
+import 'package:yestech_flutter/routes/app_routes.dart';
 import 'package:yestech_flutter/services/new_version.dart';
 
 class SplashScreenView extends StatefulWidget {
@@ -22,9 +22,8 @@ class _SplashScreenViewState extends State<SplashScreenView> {
       iOSId: 'com.theyestech.yesmobile',
     ).showAlertIfNecessary();
     Future.delayed(Duration(milliseconds: 3000), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => WelcomeScreenView()),
+      Get.offAndToNamed(
+        AppRoutes.WELCOMEVIEW,
       );
     });
   }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-import 'package:yestech_flutter/modules/account/account_view.dart';
-import 'package:yestech_flutter/modules/chats/chats_view.dart';
-import 'package:yestech_flutter/modules/home/home_educator_view.dart';
-import 'package:yestech_flutter/modules/menus/menus_view.dart';
+import 'package:get/get.dart';
+import 'package:yestech_flutter/modules/bottom_nav/bottom_nav_controller.dart';
+
 import 'package:yestech_flutter/shared/dialogs.dart';
 
 class BottomNavView extends StatefulWidget {
@@ -14,57 +12,28 @@ class BottomNavView extends StatefulWidget {
 }
 
 class _BottomNavViewState extends State<BottomNavView> {
-  int selectedIndex = 0;
-
-  List<Widget> bodyContext = [
-    HomeEducatorView(),
-    ChatsView(),
-    MenusView(),
-    AccountView(),
-  ];
-
-  List<BottomNavigationBarItem> navItem = [
-    BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.chat_bubble),
-      label: 'Chat',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.menu),
-      label: 'Menu',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.person),
-      label: 'Account',
-    ),
-  ];
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  final controller = Get.put(BottomNavController());
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      body: bodyContext.elementAt(selectedIndex),
+      body: WillPopScope(
+        onWillPop: () => Dialogs.onBackPressedExit(context),
+        child: controller.bodyContext.elementAt(controller.selectedIndex.value),
+      ),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           BottomNavigationBar(
-            items: navItem,
+            items: controller.navItem,
             iconSize: 22,
             elevation: 3.0,
             selectedFontSize: 12,
             unselectedFontSize: 12,
             backgroundColor: Colors.white,
-            currentIndex: selectedIndex,
-            onTap: onItemTapped,
+            currentIndex: controller.selectedIndex.value,
+            onTap: (index) => controller.selectedIndex.value = index,
             selectedItemColor: Colors.green,
             unselectedItemColor: Colors.grey,
             showUnselectedLabels: true,

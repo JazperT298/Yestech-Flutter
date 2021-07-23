@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
-import 'package:yestech_flutter/modules/login/login_educator_view.dart';
-import 'package:yestech_flutter/modules/login/login_student_view.dart';
+import 'package:yestech_flutter/routes/app_routes.dart';
 
 class WelcomeScreenView extends StatelessWidget {
   const WelcomeScreenView({key}) : super(key: key);
@@ -28,14 +28,11 @@ class WelcomeScreenView extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginStudentView()),
-                );
+                Get.offAllNamed(AppRoutes.LOGINSTUDENT);
               },
               child: Container(
                 height: config.appHeight(7),
-                width: MediaQuery.of(context).size.width,
+                width: double.infinity,
                 color: Colors.green,
                 child: Center(
                   child: Text(
@@ -52,14 +49,11 @@ class WelcomeScreenView extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginEducatorView()),
-                );
+                Get.offAllNamed(AppRoutes.LOGINEDUCATOR);
               },
               child: Container(
                 height: config.appHeight(7),
-                width: MediaQuery.of(context).size.width,
+                width: double.infinity,
                 color: Colors.green,
                 child: Center(
                   child: Text(

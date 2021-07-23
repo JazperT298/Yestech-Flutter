@@ -8,50 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:701742442702:android:d794228e570f3b197b489f",
-        "android_client_info": {
-          "package_name": "com.example.flutter_yestech"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "701742442702-mf8perj3vihtjjqmvq9jbot1orp6nba8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.flutter_yestech",
-            "certificate_hash": "79170208db93f7428290aa7d2df1ffdbbb64a385"
-          }
-        },
-        {
-          "client_id": "701742442702-lllevtc6tk26fjquajj0stqdtmcciqhm.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCBFFYsP2jYmoGCLIpxoS4FSM3h5FC8UrM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "701742442702-lllevtc6tk26fjquajj0stqdtmcciqhm.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "701742442702-kjo5qu3ubtaeqjqrv0csde4o2qa07l3g.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.flutteryestech"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:701742442702:android:b78c0acd5eab2d287b489f",
         "android_client_info": {
           "package_name": "com.theyestech.yes_mobile"
@@ -82,13 +38,6 @@
             {
               "client_id": "701742442702-lllevtc6tk26fjquajj0stqdtmcciqhm.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "701742442702-kjo5qu3ubtaeqjqrv0csde4o2qa07l3g.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.flutteryestech"
-              }
             }
           ]
         }

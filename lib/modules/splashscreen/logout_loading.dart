@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yestech_flutter/modules/home/home_educator_view.dart';
+import 'package:get/get.dart';
+import 'package:yestech_flutter/routes/app_routes.dart';
 
 class LoadingLogout extends StatefulWidget {
   const LoadingLogout({key}) : super(key: key);
@@ -12,11 +13,8 @@ class _LoadingLogoutState extends State<LoadingLogout> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 200), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomeEducatorView()),
-      );
+    Future.delayed(Duration(milliseconds: 500), () {
+      Get.offNamed(AppRoutes.BOTTOMNAV);
     });
   }
 

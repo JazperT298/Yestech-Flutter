@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
-import 'package:yestech_flutter/modules/bottom_nav/bottom_nav.dart';
-import 'package:yestech_flutter/modules/register/register_student_view.dart';
+import 'package:yestech_flutter/routes/app_routes.dart';
 
 class LoginStudentView extends StatefulWidget {
   const LoginStudentView({key}) : super(key: key);
@@ -74,9 +74,7 @@ class _LoginStudentViewState extends State<LoginStudentView> {
                 ),
               ),
               onPressed: () {
-                // controller.loginUser();
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BottomNavView()));
+                Get.offAllNamed(AppRoutes.BOTTOMNAV);
               },
             ),
           ),
@@ -95,10 +93,7 @@ class _LoginStudentViewState extends State<LoginStudentView> {
           SizedBox(width: 5.0),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => RegisterStudentView()));
+              Get.offAllNamed(AppRoutes.REGISTERSTUDENT);
             },
             child: Text(
               "Create account",

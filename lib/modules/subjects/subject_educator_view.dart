@@ -179,26 +179,6 @@ class _SubjectEducatorViewState extends State<SubjectEducatorView> {
       ),
     );
   }
-
-  void _modalBottomSheetMenu() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return Container(
-            height: 350.0,
-            color: Colors.transparent,
-            child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10.0),
-                        topRight: Radius.circular(10.0))),
-                child: Center(
-                  child: Text("This is a modal sheet"),
-                )),
-          );
-        });
-  }
 }
 
 class SubjectModel {
