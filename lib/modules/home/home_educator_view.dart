@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
 import 'package:yestech_flutter/modules/connects/connection_educator_view.dart';
+import 'package:yestech_flutter/modules/home/home_controller.dart';
 import 'package:yestech_flutter/modules/subjects/subject_educator_view.dart';
+import 'package:yestech_flutter/services/get_storage_service.dart';
 
 class HomeEducatorView extends StatefulWidget {
   const HomeEducatorView({key}) : super(key: key);
@@ -12,6 +15,7 @@ class HomeEducatorView extends StatefulWidget {
 
 class _HomeEducatorViewState extends State<HomeEducatorView> {
   final TextStyle whiteText = TextStyle(color: Colors.white);
+  final controller = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     final config = App(context);
@@ -73,7 +77,8 @@ class _HomeEducatorViewState extends State<HomeEducatorView> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         child: Text(
-                          'Jasper Tony Atillo',
+                          GetStorageService.c.appdata.read('user_firstname') ??
+                              'NO NAME',
                           style: TextStyle(
                             color: Colors.white,
                           ),

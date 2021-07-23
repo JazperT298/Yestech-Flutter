@@ -8,6 +8,7 @@ import 'package:yestech_flutter/modules/login/login_educator_view.dart';
 import 'package:yestech_flutter/modules/login/login_student_view.dart';
 import 'package:yestech_flutter/modules/register/register_educator_view.dart';
 import 'package:yestech_flutter/modules/register/register_student_view.dart';
+import 'package:yestech_flutter/modules/splashscreen/logout_loading.dart';
 import 'package:yestech_flutter/modules/splashscreen/splashscreen_view.dart';
 import 'package:yestech_flutter/modules/welcome/welcomescreen_view.dart';
 import 'package:yestech_flutter/routes/app_routes.dart';
@@ -54,6 +55,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.EDITACCOUNT,
       page: () => EditAccountView(),
+    ),
+    GetPage(
+      name: AppRoutes.LOGOUTLOADING,
+      page: () => LoadingLogout(),
     ),
   ];
 }

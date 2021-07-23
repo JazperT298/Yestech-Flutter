@@ -8,4 +8,5 @@ class AppRoutes {
   static const String REGISTEREDUCATOR = '/registereducator';
   static const String REGISTERSTUDENT = '/registerstudent';
   static const String EDITACCOUNT = '/editaccount';
+  static const String LOGOUTLOADING = '/logoutloading';
 }

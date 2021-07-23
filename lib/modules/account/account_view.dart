@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
 import 'package:yestech_flutter/modules/account/edit_account_view.dart';
+import 'package:yestech_flutter/services/get_storage_service.dart';
+import 'package:yestech_flutter/shared/dialogs.dart';
 
 class AccountView extends StatefulWidget {
   const AccountView({key}) : super(key: key);
@@ -134,16 +136,20 @@ class _AccountViewState extends State<AccountView> {
                   ),
                 ),
                 Divider(),
-                Container(
-                  height: config.appHeight(5),
-                  margin: EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Logout'),
-                    ],
+                if (GetStorageService.c.appdata.read('user_id') != null)
+                  InkWell(
+                    onTap: () => Dialogs.showLogout(context),
+                    child: Container(
+                      height: config.appHeight(5),
+                      margin: EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Logout'),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
                 Divider(),
               ],
             ),

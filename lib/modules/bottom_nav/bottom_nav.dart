@@ -20,34 +20,39 @@ class _BottomNavViewState extends State<BottomNavView> {
     return Scaffold(
       body: WillPopScope(
         onWillPop: () => Dialogs.onBackPressedExit(context),
-        child: controller.bodyContext.elementAt(controller.selectedIndex.value),
+        child: Obx(
+          () =>
+              controller.bodyContext.elementAt(controller.selectedIndex.value),
+        ),
       ),
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          BottomNavigationBar(
-            items: controller.navItem,
-            iconSize: 22,
-            elevation: 3.0,
-            selectedFontSize: 12,
-            unselectedFontSize: 12,
-            backgroundColor: Colors.white,
-            currentIndex: controller.selectedIndex.value,
-            onTap: (index) => controller.selectedIndex.value = index,
-            selectedItemColor: Colors.green,
-            unselectedItemColor: Colors.grey,
-            showUnselectedLabels: true,
-            unselectedLabelStyle: TextStyle(
-              fontFamily: theme.textTheme.headline3.fontFamily,
-              fontSize: 11,
+      bottomNavigationBar: Obx(
+        () => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            BottomNavigationBar(
+              items: controller.navItem,
+              iconSize: 22,
+              elevation: 3.0,
+              selectedFontSize: 12,
+              unselectedFontSize: 12,
+              backgroundColor: Colors.white,
+              currentIndex: controller.selectedIndex.value,
+              onTap: (index) => controller.selectedIndex.value = index,
+              selectedItemColor: Colors.green,
+              unselectedItemColor: Colors.grey,
+              showUnselectedLabels: true,
+              unselectedLabelStyle: TextStyle(
+                fontFamily: theme.textTheme.headline3.fontFamily,
+                fontSize: 11,
+              ),
+              selectedLabelStyle: TextStyle(
+                fontFamily: theme.textTheme.headline3.fontFamily,
+                fontSize: 11,
+              ),
+              type: BottomNavigationBarType.fixed,
             ),
-            selectedLabelStyle: TextStyle(
-              fontFamily: theme.textTheme.headline3.fontFamily,
-              fontSize: 11,
-            ),
-            type: BottomNavigationBarType.fixed,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

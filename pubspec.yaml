@@ -30,6 +30,8 @@ dependencies:
   version: ^2.0.0
   get: ^4.2.4
   get_storage: ^2.0.3
+  device_info: ^2.0.2
+  flutter_styled_toast: ^2.0.0
 
   #firebase
   firebase_auth: ^2.0.0

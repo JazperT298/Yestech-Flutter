@@ -14,7 +14,7 @@ class _LoadingLogoutState extends State<LoadingLogout> {
   void initState() {
     super.initState();
     Future.delayed(Duration(milliseconds: 500), () {
-      Get.offNamed(AppRoutes.BOTTOMNAV);
+      Get.offNamed(AppRoutes.WELCOMEVIEW);
     });
   }
 

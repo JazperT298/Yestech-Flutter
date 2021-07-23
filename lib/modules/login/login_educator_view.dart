@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/modules/login/login_controller.dart';
 import 'package:yestech_flutter/routes/app_routes.dart';
+import 'package:yestech_flutter/services/get_storage_service.dart';
+import 'package:yestech_flutter/shared/dialogs.dart';
 
-class LoginEducatorView extends StatefulWidget {
-  const LoginEducatorView({key}) : super(key: key);
-
-  @override
-  _LoginEducatorViewState createState() => _LoginEducatorViewState();
-}
-
-class _LoginEducatorViewState extends State<LoginEducatorView> {
+class LoginEducatorView extends StatelessWidget {
+  final controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
+    final node = FocusScope.of(context);
+
     final config = App(context);
     final _node = FocusScope.of(context);
 
@@ -31,7 +30,7 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
 
     TextField _usernameInput() {
       return TextField(
-        // controller: controller.username,
+        controller: controller.username,
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.next,
         onEditingComplete: () => _node.nextFocus(),
@@ -43,8 +42,8 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
 
     TextField _passwordInput() {
       return TextField(
-        // controller: controller.password,
-        // obscureText: controller.isObsecureText.value,
+        controller: controller.password,
+        //obscureText: controller.isObsecureText.value,
         onSubmitted: (_) => _node.unfocus(),
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
@@ -73,8 +72,28 @@ class _LoginEducatorViewState extends State<LoginEducatorView> {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {
-                Get.offAllNamed(AppRoutes.BOTTOMNAV);
+              onPressed: () async {
+                node.unfocus();
+                if (!controller.username.text.contains('@') ||
+                    !controller.username.text.endsWith('.com')) {
+                  Dialogs.showMyToast(context, "Invalid email adreess");
+                } else if (controller.username.text.isEmpty) {
+                  Dialogs.showMyToast(
+                      context, "Phone number must not be Empty");
+                } else if (controller.password.text.isEmpty) {
+                  Dialogs.showMyToast(context, "Password must not be Empty");
+                } else {
+                  var loginReturn = await controller.loadingLogin(context,
+                      controller.username.text, controller.password.text);
+                  print(loginReturn);
+                  if (loginReturn != 'success') {
+                    Dialogs.showMyToast(context, "Invalid credentials");
+                  } else if (loginReturn == 'catch') {
+                    Dialogs.showMyToast(context, "Oops, something went wrong");
+                  } else {
+                    controller.successNavigate();
+                  }
+                }
               },
             ),
           ),
