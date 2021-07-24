@@ -16,9 +16,6 @@ class LoginApi {
     try {
       var response = await client.post(
           Uri.parse('$baseUrl/controller_educator/login_as_educator_class.php'),
-          headers: {
-            'Accept': 'application/json',
-          },
           body: {
             "login_e_email_address": username.toString(),
             "login_e_password": password.toString(),
@@ -96,45 +93,55 @@ class LoginApi {
 
   static Future getEducatorDetails() async {
     try {
-      var response = await client.post(
-          Uri.parse('$baseUrl/controller_global/get_user_details.php'),
-          body: {
-            "user_token":
-                Get.find<GetStorageService>().appdata.read('user_token'),
-            "user_id": Get.find<GetStorageService>().appdata.read('user_id'),
-          }).timeout(
+      // var headers = {
+      //   'access-control-allow-origin': '*',
+      //   'content-type': 'application/x-www-form-urlencoded',
+      // };
+      // var request = http.Request(
+      //     'POST',
+      //     Uri.parse(
+      //         'https://theyestech.com/controllerClass/controller_global/get_user_details.php'));
+      // request.bodyFields = {
+      //   'user_token': '954497023a6ed1b60f8fda2f87a2fc3a',
+      //   'user_id': '152'
+      // };
+      // request.headers.addAll(headers);
+
+      // http.StreamedResponse response = await request.send();
+
+      // if (response.statusCode == 200) {
+      //   var yawa = await response.stream.bytesToString();
+      //   print(yawa);
+      // } else {
+      //   print(response.reasonPhrase);
+      //}
+      var response = await client
+          .post(Uri.parse('$baseUrl/controller_global/get_user_details.php'),
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              body: {
+                "user_token":
+                    Get.find<GetStorageService>().appdata.read('user_token'),
+                "user_id": Get.find<GetStorageService>().appdata.read('user_id')
+              },
+              encoding: Encoding.getByName('utf-8'))
+          .timeout(
         const Duration(seconds: 10),
         onTimeout: () {
           throw TimeoutException(
               "getEducatorDetails Services Connection timeout.");
         },
       );
+      print(Get.find<GetStorageService>().appdata.read('user_token'));
+      print(Get.find<GetStorageService>().appdata.read('user_id'));
+      print("Response status: ${response.statusCode}");
+      print("Response body: ${response.contentLength}");
+      print("Response body: ${response.body}");
 
-      // print('response.body ${response.body}');
-      // if (response.statusCode == 200) {
-      //   var jsonString = jsonDecode(response.body);
-      //   var jsonStringEncoded = jsonEncode(jsonString);
-
-      //   return userEducatorFromJson(jsonStringEncoded);
-      //   // if ((response.body.contains('success_student'))) {
-      //   //   var jsonStringEncoded = jsonEncode(jsonString);
-
-      //   //   return userEducatorFromJson(jsonStringEncoded);
-      //   // }
-      // } else {
-      //   print('loginStudent Services  error');
-      //   return null;
-      // }
-
-      print("getEducatorDetails body ${response.body}");
-      print("getEducatorDetails code ${response.statusCode}");
-      if (response.statusCode == 200) {
-        print("getEducatorDetails data ${jsonDecode(response.body)['data']}");
-        return userEducatorFromJson(
-            json.encode(jsonDecode(response.body)['data']));
-      } else {
-        return null;
-      }
+      print(response.headers);
+      print(response.request);
     } on TimeoutException catch (_) {
       print('getEducatorDetails Services Response timeout');
       return null;

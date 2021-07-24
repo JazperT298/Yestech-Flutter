@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/configs/app_endpoints.dart';
 import 'package:yestech_flutter/modules/login/login_controller.dart';
 import 'package:yestech_flutter/routes/app_routes.dart';
 import 'package:yestech_flutter/services/get_storage_service.dart';
 import 'package:yestech_flutter/shared/dialogs.dart';
+import 'package:http/http.dart' as http;
 
 class LoginEducatorView extends StatelessWidget {
   final controller = Get.put(LoginController());
@@ -85,6 +89,7 @@ class LoginEducatorView extends StatelessWidget {
                 } else {
                   var loginReturn = await controller.loadingLogin(context,
                       controller.username.text, controller.password.text);
+                  await controller.loadingGetUserInfo(context);
                   print(loginReturn);
                   if (loginReturn != 'success') {
                     Dialogs.showMyToast(context, "Invalid credentials");

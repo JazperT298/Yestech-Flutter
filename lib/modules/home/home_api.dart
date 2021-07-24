@@ -49,4 +49,26 @@ class HomeApi {
       return null;
     }
   }
+
+  void getUsersDetail() async {
+    print('11s ');
+    final response = await http.post(
+      Uri.parse('$baseUrl/controller_global/get_user_details.php'),
+      headers: {
+        'Accept': 'application/json',
+      },
+      body: {
+        'user_token': Get.find<GetStorageService>().appdata.read('user_token'),
+        'user_id': Get.find<GetStorageService>().appdata.read('user_id'),
+      },
+      // body: {
+      //   'user_token': Get.find<GetStorageService>().appdata.read('user_token'),
+      //   'user_id': Get.find<GetStorageService>().appdata.read('user_id'),
+      // },
+    );
+    print('22s ');
+    print(response.body);
+    // final responseBody = json.decode(response.body);
+    // print(responseBody);
+  }
 }
