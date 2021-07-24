@@ -13,7 +13,7 @@ class NotificationService extends GetxService {
   @override
   void onInit() async {
     super.onInit();
-    await Firebase.initializeApp();
+    //await Firebase.initializeApp();
 
     messaging = FirebaseMessaging.instance;
 

@@ -4,6 +4,7 @@ import 'package:yestech_flutter/modules/account/widgets/user_background_view.dar
 import 'package:yestech_flutter/modules/account/widgets/user_info_view.dart';
 import 'package:yestech_flutter/modules/account/widgets/user_password_view.dart';
 import 'package:yestech_flutter/modules/account/widgets/user_social_view.dart';
+import 'package:yestech_flutter/modules/colors.dart';
 
 class EditAccountView extends StatefulWidget {
   const EditAccountView({key}) : super(key: key);
@@ -47,7 +48,7 @@ class _EditAccountViewState extends State<EditAccountView> {
         Container(
           height: 70.0,
           width: double.infinity,
-          color: Colors.greenAccent,
+          color: mainColor,
           child: Center(
             child: Text(
               'Welcome Yestekers, Before we proceed learning, \nlets create our profile first!',

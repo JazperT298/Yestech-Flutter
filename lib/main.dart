@@ -16,21 +16,21 @@ void main() async {
   await GetStorage.init();
   WidgetsFlutterBinding.ensureInitialized();
 
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  //FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  _initNotificationService();
+  //_initNotificationService();
   _initGetStorageService();
   _initTransactionService();
   runApp(MyApp());
 }
 
-Future<void> _initNotificationService() async {
-  print('init NotificationService..');
-  await Get.putAsync<NotificationService>(() async => NotificationService());
-}
+// Future<void> _initNotificationService() async {
+//   print('init NotificationService..');
+//   await Get.putAsync<NotificationService>(() async => NotificationService());
+// }
 
 void _initGetStorageService() {
   print('init get storage service..');
@@ -42,11 +42,11 @@ void _initTransactionService() {
   Get.put(TransactionService());
 }
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
+// Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+//   await Firebase.initializeApp();
 
-  print("Handling a background message: ${message.messageId}");
-}
+//   print("Handling a background message: ${message.messageId}");
+// }
 
 class MyApp extends StatelessWidget {
   @override

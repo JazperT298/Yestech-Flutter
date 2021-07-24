@@ -2,31 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
-import 'package:yestech_flutter/routes/app_routes.dart';
-import 'package:yestech_flutter/services/new_version.dart';
+import 'package:yestech_flutter/modules/splashscreen/splashscreen_controller.dart';
 
-class SplashScreenView extends StatefulWidget {
-  const SplashScreenView({key}) : super(key: key);
-
-  @override
-  _SplashScreenViewState createState() => _SplashScreenViewState();
-}
-
-class _SplashScreenViewState extends State<SplashScreenView> {
-  @override
-  void initState() {
-    super.initState();
-    NewVersion(
-      context: context,
-      androidId: 'com.theyestech.yes_mobile',
-      iOSId: 'com.theyestech.yesmobile',
-    ).showAlertIfNecessary();
-    Future.delayed(Duration(milliseconds: 3000), () {
-      Get.offAndToNamed(
-        AppRoutes.WELCOMEVIEW,
-      );
-    });
-  }
+class SplashScreenView extends StatelessWidget {
+  final controller = Get.put(SplashScreenController());
 
   @override
   Widget build(BuildContext context) {

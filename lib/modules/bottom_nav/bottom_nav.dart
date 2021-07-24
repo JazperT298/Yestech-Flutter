@@ -3,15 +3,9 @@ import 'package:get/get.dart';
 import 'package:yestech_flutter/modules/bottom_nav/bottom_nav_controller.dart';
 
 import 'package:yestech_flutter/shared/dialogs.dart';
+import 'package:sizer/sizer.dart';
 
-class BottomNavView extends StatefulWidget {
-  const BottomNavView({key}) : super(key: key);
-
-  @override
-  _BottomNavViewState createState() => _BottomNavViewState();
-}
-
-class _BottomNavViewState extends State<BottomNavView> {
+class BottomNavView extends StatelessWidget {
   final controller = Get.put(BottomNavController());
 
   @override
@@ -33,8 +27,8 @@ class _BottomNavViewState extends State<BottomNavView> {
               items: controller.navItem,
               iconSize: 22,
               elevation: 3.0,
-              selectedFontSize: 12,
-              unselectedFontSize: 12,
+              selectedFontSize: 11.sp,
+              unselectedFontSize: 11.sp,
               backgroundColor: Colors.white,
               currentIndex: controller.selectedIndex.value,
               onTap: (index) => controller.selectedIndex.value = index,

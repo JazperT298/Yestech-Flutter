@@ -8,7 +8,6 @@ import 'package:yestech_flutter/services/new_version.dart';
 
 class SplashScreenController extends GetxController {
   final newVersion = NewVersion(
-    context: null,
     androidId: 'com.theyestech.yes_mobile',
     iOSId: 'com.theyestech.yesmobile',
   );
@@ -34,7 +33,7 @@ class SplashScreenController extends GetxController {
         _newVersionDialog();
       } else {
         //check if user has logged in
-        if (box.read('contactnumber') != null) {
+        if (box.read('user_id') != null) {
           Get.offAndToNamed(
             AppRoutes.BOTTOMNAV,
           );
@@ -54,7 +53,8 @@ class SplashScreenController extends GetxController {
 
   //Navigate to play/app store
   void _launchToStore() {
-    LaunchReview.launch(androidAppId: "com.e2e.bigbys", iOSAppId: "1517630422");
+    LaunchReview.launch(
+        androidAppId: "com.theyestech.yes_mobile", iOSAppId: "1517630422");
   }
 
   // void askLocalNotificationRequest() async {
