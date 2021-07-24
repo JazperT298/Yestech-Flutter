@@ -80,7 +80,7 @@ class LoginEducatorView extends StatelessWidget {
                 node.unfocus();
                 if (!controller.username.text.contains('@') ||
                     !controller.username.text.endsWith('.com')) {
-                  Dialogs.showMyToast(context, "Invalid email adreess");
+                  Dialogs.showMyToast(context, "Invalid email address");
                 } else if (controller.username.text.isEmpty) {
                   Dialogs.showMyToast(
                       context, "Phone number must not be Empty");
@@ -109,10 +109,10 @@ class LoginEducatorView extends StatelessWidget {
     Widget _bottomText() {
       return Row(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Doesn't have account?",
+            "Forgot Password?",
           ),
           SizedBox(width: 5.0),
           GestureDetector(
@@ -120,7 +120,7 @@ class LoginEducatorView extends StatelessWidget {
               Get.offAllNamed(AppRoutes.REGISTEREDUCATOR);
             },
             child: Text(
-              "Create account",
+              "New here? Register now",
               style: TextStyle(
                 color: Colors.blueAccent,
               ),
