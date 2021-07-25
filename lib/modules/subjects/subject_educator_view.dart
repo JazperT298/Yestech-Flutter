@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yestech_flutter/modules/colors.dart';
 import 'package:sizer/sizer.dart';
+import 'package:yestech_flutter/modules/manage_subject/manage_subject_controller.dart';
+import 'package:yestech_flutter/modules/manage_subject/manage_subject_drawer.dart';
 import 'package:yestech_flutter/modules/subjects/subject_controller.dart';
+import 'package:yestech_flutter/routes/app_routes.dart';
 
 class SubjectEducatorView extends StatelessWidget {
   final controller = Get.put(SubjectController());
+  final manageSubjectController = Get.put(ManageSubjectController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: controller.scaffoldKey,
+      endDrawer: ManageSubjectDrawer(),
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: toungeColor,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
@@ -49,6 +55,7 @@ class SubjectEducatorView extends StatelessWidget {
           child: Obx(
             () => ListView.builder(
               physics: NeverScrollableScrollPhysics(),
+              reverse: true,
               itemCount: controller.listOFSubject.length,
               itemBuilder: (context, index) {
                 return Container(
@@ -149,22 +156,36 @@ class SubjectEducatorView extends StatelessWidget {
                               onPressed: () {},
                               icon: Icon(
                                 Icons.delete,
-                                color: Colors.red,
+                                color: toungeColor,
                               )),
-                          Container(
-                            height: 35,
-                            width: 110.0,
-                            decoration: BoxDecoration(
-                              color: Colors.redAccent,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Center(
-                                child: Text(
-                              'Manage',
-                              style: TextStyle(
-                                color: Colors.white,
+                          InkWell(
+                            onTap: () {
+                              var id = controller.listOFSubject[index].subjId;
+                              print(id);
+                              manageSubjectController.subjectId.value =
+                                  int.parse(
+                                      controller.listOFSubject[index].subjId);
+                              manageSubjectController.subjectTitle.value =
+                                  controller.listOFSubject[index].subjTitle;
+                              controller.scaffoldKey.currentState
+                                  .openEndDrawer();
+                              //Get.toNamed(AppRoutes.MANAGESUBJECT);
+                            },
+                            child: Container(
+                              height: 35,
+                              width: 110.0,
+                              decoration: BoxDecoration(
+                                color: toungeColor,
+                                borderRadius: BorderRadius.circular(5),
                               ),
-                            )),
+                              child: Center(
+                                  child: Text(
+                                'Manage',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              )),
+                            ),
                           )
                         ],
                       ),

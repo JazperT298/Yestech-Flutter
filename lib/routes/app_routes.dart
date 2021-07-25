@@ -9,4 +9,13 @@ class AppRoutes {
   static const String REGISTERSTUDENT = '/registerstudent';
   static const String EDITACCOUNT = '/editaccount';
   static const String LOGOUTLOADING = '/logoutloading';
+  static const String MANAGESUBJECT = '/managesubject';
+
+  static const String ABOUTSUBJECT = '/aboutsubject';
+  static const String VIEWSTUDENT = '/viewstudent';
+  static const String STUDENTREQUEST = '/studentrequest';
+  static const String SUBJECTTOPIC = '/subjecttopic';
+  static const String VIEWQUIZ = '/viewquiz';
+  static const String SUBJECTSTICKERS = '/subjectstickers';
+  static const String SUBJECTASSESSMENT = '/subjectassessment';
 }

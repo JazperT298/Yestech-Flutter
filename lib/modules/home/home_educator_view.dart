@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yestech_flutter/configs/app_configs.dart';
+import 'package:yestech_flutter/modules/colors.dart';
 import 'package:yestech_flutter/modules/connects/connection_educator_view.dart';
 import 'package:yestech_flutter/modules/home/home_controller.dart';
 import 'package:yestech_flutter/modules/subjects/subject_educator_view.dart';
@@ -207,7 +208,7 @@ class _HomeEducatorViewState extends State<HomeEducatorView> {
                         ),
                         child: Obx(
                           () => _buildTile(
-                            color: Colors.red,
+                            color: toungeColor,
                             icon: Icons.subject,
                             title: "Subjects",
                             data: "${controller.statisticsSubject.value}",

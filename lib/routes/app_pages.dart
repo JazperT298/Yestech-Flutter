@@ -6,6 +6,14 @@ import 'package:yestech_flutter/modules/bottom_nav/bottom_nav_binding.dart';
 import 'package:yestech_flutter/modules/home/home_educator_view.dart';
 import 'package:yestech_flutter/modules/login/login_educator_view.dart';
 import 'package:yestech_flutter/modules/login/login_student_view.dart';
+import 'package:yestech_flutter/modules/manage_subject/about_subject_view.dart';
+import 'package:yestech_flutter/modules/manage_subject/manage_subject.dart';
+import 'package:yestech_flutter/modules/manage_subject/student_request_view.dart';
+import 'package:yestech_flutter/modules/manage_subject/subject_assessment_view.dart';
+import 'package:yestech_flutter/modules/manage_subject/subject_quiz_view.dart';
+import 'package:yestech_flutter/modules/manage_subject/subject_stickers_view.dart';
+import 'package:yestech_flutter/modules/manage_subject/subject_student_view.dart';
+import 'package:yestech_flutter/modules/manage_subject/subject_topic_view.dart';
 import 'package:yestech_flutter/modules/register/register_educator_view.dart';
 import 'package:yestech_flutter/modules/register/register_student_view.dart';
 import 'package:yestech_flutter/modules/splashscreen/logout_loading.dart';
@@ -59,6 +67,39 @@ class AppPages {
     GetPage(
       name: AppRoutes.LOGOUTLOADING,
       page: () => LoadingLogout(),
+    ),
+    GetPage(
+      name: AppRoutes.MANAGESUBJECT,
+      page: () => ManageSubjectView(),
+    ),
+    //MANANGE SUBJECT
+    GetPage(
+      name: AppRoutes.ABOUTSUBJECT,
+      page: () => AboutSubjectView(),
+    ),
+    GetPage(
+      name: AppRoutes.VIEWSTUDENT,
+      page: () => SubjectStudentView(),
+    ),
+    GetPage(
+      name: AppRoutes.STUDENTREQUEST,
+      page: () => StudentRequestView(),
+    ),
+    GetPage(
+      name: AppRoutes.SUBJECTTOPIC,
+      page: () => SubjectTopicView(),
+    ),
+    GetPage(
+      name: AppRoutes.VIEWQUIZ,
+      page: () => SubjectQuizView(),
+    ),
+    GetPage(
+      name: AppRoutes.SUBJECTSTICKERS,
+      page: () => SubjectStickersView(),
+    ),
+    GetPage(
+      name: AppRoutes.SUBJECTASSESSMENT,
+      page: () => SubjectAssessmentView(),
     ),
   ];
 }

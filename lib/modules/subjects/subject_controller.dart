@@ -1,10 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yestech_flutter/models/subject.dart';
 import 'package:yestech_flutter/modules/subjects/subject_api.dart';
 
 class SubjectController extends GetxController {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  var subjId = 0.obs;
   RxList<Subject> listOFSubject = <Subject>[].obs;
 
   @override
@@ -19,7 +22,7 @@ class SubjectController extends GetxController {
       if (result != null) {
         for (var i = 0; i < result.length; i++) {
           Map mapping = {
-            "subj_id": result[i]['Status'],
+            "subj_id": result[i]['subj_id'],
             "subj_level": result[i]['subj_level'],
             "user_id": result[i]['user_id'],
             "subj_section": result[i]['subj_section'],
